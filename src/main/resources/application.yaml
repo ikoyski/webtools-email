@@ -1,0 +1,31 @@
+server:
+  port: 8095
+
+spring:
+  application:
+    name: webtools-email
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: a@a.aa
+    password: abcdefg
+    properties:
+      mail:
+        smtp:
+          auth: true
+        starttls:
+          enable: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  info:
+    git:
+      mode: full
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761
