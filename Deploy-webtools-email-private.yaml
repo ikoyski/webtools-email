@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webtools-email
+spec:
+  selector:
+    matchLabels:
+      app: webtools-email
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webtools-email
+    spec:
+      containers:
+      - name: webtools-email
+        image: "ikoyski/webtools-email:latest"
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8195
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webtools-email
+spec:
+  selector:
+    app: webtools-email
+  ports:
+  - protocol: "TCP"
+    port: 8195
+    targetPort: 8195
+  type: NodePort
+  
