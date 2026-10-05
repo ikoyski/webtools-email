@@ -14,7 +14,7 @@ import com.ikoyski.webtools.email.dto.EmailDetails;
 @Service
 public class EmailServiceImpl implements EmailService {
 
-	@Value("${spring.mail.username}")
+	@Value("${email.from}")
 	private String sender;
 
 	private JavaMailSender javaMailSender;
